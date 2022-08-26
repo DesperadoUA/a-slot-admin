@@ -6,16 +6,7 @@
           <v-expansion-panel>
             <v-expansion-panel-header >{{title}}</v-expansion-panel-header>
             <v-expansion-panel-content class="pt-4">
-              <v-row v-for="(item, index) in currentData" :key="index">
-                <v-col class="col-5">
-                  <v-text-field
-                                prepend-icon="mdi-tooltip-edit"
-                                type="text"
-                                color="deep-orange darken-2"
-                                v-model = "currentData[index].value_1"
-                                @change = "change"
-                  ></v-text-field>
-                </v-col>
+              <v-row v-for="(item, index) in currentData" :key="index" class="bb-orange">
                 <v-col class="col-5">
                   <v-text-field
                                 prepend-icon="mdi-tooltip-edit"
@@ -24,6 +15,32 @@
                                 v-model = "currentData[index].value_2"
                                 @change = "change"
                   ></v-text-field>
+                </v-col>
+                <v-col class="col-5">
+                  <v-text-field
+                                prepend-icon="mdi-tooltip-edit"
+                                type="text"
+                                color="deep-orange darken-2"
+                                v-model = "currentData[index].value_3"
+                                @change = "change"
+                  ></v-text-field>
+                </v-col>
+                <v-col class="col-5">
+                  <v-text-field
+                                prepend-icon="mdi-tooltip-edit"
+                                type="text"
+                                color="deep-orange darken-2"
+                                v-model = "currentData[index].value_4"
+                                @change = "change"
+                   ></v-text-field>
+                </v-col>
+                <v-col class="col-5">
+                     <v-select
+                          color="deep-orange darken-2"
+                          :items="items"
+                          v-model= "currentData[index].value_1"
+                          @change= "change"
+                  ></v-select>
                 </v-col>
                 <v-col class="col-2 text-right">
                   <v-btn
@@ -36,7 +53,7 @@
                 </v-col>
               </v-row>
               <v-btn
-                      class="deep-orange darken-2 font-podkova-bold"
+                      class="deep-orange darken-2 font-podkova-bold mt-5"
                       @click="addItem"
               >
                 <v-icon left>mdi-playlist-plus</v-icon>
@@ -52,8 +69,8 @@
 
 <script>
     export default {
-        name: "MM_Multiple_Two_Input",
-        props: ['value', 'title', 'action', 'action_key'],
+        name: "MM_Multiple_Options_Three_Input",
+        props: ['value', 'title', 'action', 'action_key', 'items'],
         data(){
             return {
                currentData: []
@@ -63,7 +80,9 @@
              addItem() {
               this.currentData.push({
                 value_1: '',
-                value_2: ''
+                value_2: '',
+                value_3: '',
+                value_4: ''
               })
               const currentData = {
                       key: this.action_key,
@@ -88,12 +107,13 @@
             }
         },
         mounted() {
-          console.log(this.value)
           this.currentData = this.value
         }
     }
 </script>
 
 <style scoped>
-
+.bb-orange {
+  border-bottom: 1px solid #FF3D00;
+}
 </style>

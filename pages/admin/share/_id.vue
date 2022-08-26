@@ -38,18 +38,18 @@
                :text = "snackbar.text"
                :timeout = "snackbar.timeout"
     />
-    <postPreview v-if='data.body'  slug="betting" :permalink="data.body.permalink" />
+    <postPreview v-if='data.body'  slug="share" :permalink="data.body.permalink" />
   </div>
 </template>
 
 <script>
 import commonEdit from '~/components/templates/commonEdit'
-import postMeta from '~/components/templates/meta/Betting'
-import postRelative from '~/components/templates/relative/Betting'
+import postMeta from '~/components/templates/meta/Share'
+import postRelative from '~/components/templates/relative/Share'
 import snackeBar from '~/components/templates/snackbar'
 import postPreview from '~/components/lib/MM_Post_Preview'
     export default {
-        name: "singleBettingPage",
+        name: "singleSharePage",
         layout: 'admin',
         components: {commonEdit, postMeta, snackeBar, postRelative, postPreview},
         async mounted() {
@@ -64,7 +64,7 @@ import postPreview from '~/components/lib/MM_Post_Preview'
         },
         data(){
           return {
-              POST_TYPE: 'betting',
+              POST_TYPE: 'share',
               data:{
                 body: undefined
               },

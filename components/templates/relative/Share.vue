@@ -8,12 +8,6 @@
                     :title = '"Relative category"' 
                     :action_key = '"category"'
                     />
-            <MM_Relative_Posts 
-                    :value = 'data.game_vendor'
-                    :action = 'action' 
-                    :title = '"Relative vendor"' 
-                    :action_key = '"game_vendor"'
-                    />
             </v-col>
         </v-row>
     </v-container>
@@ -22,7 +16,7 @@
 <script>
     import MM_Relative_Posts from '~/components/lib/MM_Relative_Posts'
     export default {
-        name: "slotCategory",
+        name: "shareCategory",
         props: ['data', 'action'],
         components: {MM_Relative_Posts},
         data() {

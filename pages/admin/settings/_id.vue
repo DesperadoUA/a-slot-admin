@@ -28,12 +28,17 @@
                         :title = 'data.title'
                         :action = 'action'
                         :action_key = '"value"' />
-              <MM_Multiple_Input_Text v-if = "data.editor === 'input_text'" 
+              <MM_Multiple_Input_Text v-if = "data.editor === 'multiple_input_text'" 
                         :value = 'data.value' 
                         :title = 'data.title'
                         :action = 'action'
                         :action_key = '"value"' />
               <MM_Multiple_Menu v-if = "data.editor === 'multiple_menu'" 
+                        :value = 'data.value' 
+                        :title = 'data.title'
+                        :action = 'action'
+                        :action_key = '"value"' />
+              <MM_Multiple_Two_Input v-if = "data.editor === 'multiple_two_input'" 
                         :value = 'data.value' 
                         :title = 'data.title'
                         :action = 'action'
@@ -68,11 +73,13 @@ import MM_Input from '~/components/lib/MM_Input'
 import MM_Rich_Text from '~/components/lib/MM_Rich_Text'
 import MM_Multiple_Two_Input_Image from '~/components/lib/MM_Multiple_Two_Input_Image'
 import MM_Multiple_Input_Text from '~/components/lib/MM_Multiple_Input_Text'
-import MM_Multiple_Menu from '~/components/lib/MM_Multiple_Menu.vue'
+import MM_Multiple_Menu from '~/components/lib/MM_Multiple_Menu'
+import MM_Multiple_Two_Input from '~/components/lib/MM_Multiple_Two_Input'
     export default {
         name: "singleSettings",
         layout: 'admin',
-        components: {snackeBar, MM_Image, MM_Input, MM_Rich_Text, MM_Multiple_Two_Input_Image, MM_Multiple_Menu},
+        components: {snackeBar, MM_Image, MM_Input, MM_Rich_Text, MM_Multiple_Two_Input_Image, 
+                     MM_Multiple_Menu, MM_Multiple_Two_Input, MM_Multiple_Input_Text},
         async mounted() {
           this.data.title = 'Settings single page'
           

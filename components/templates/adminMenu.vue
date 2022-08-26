@@ -270,6 +270,36 @@
               </v-list-item>
             </v-list>
           </v-menu>
+          <v-menu
+                  transition="slide-y-transition"
+                  bottom
+                  no-prefetch
+                  class="d-block"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                      class="deep-orange mt-5 darken-2 justify-start display_block font-podkova-bold"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+              >
+                <v-icon left>mdi-folder-multiple-outline</v-icon>
+                Shares
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item
+                      no-prefetch
+                      class="font-podkova-bold"
+                      v-for="(item, i) in sharePage"
+                      :key="i" :to="item.link"
+              >
+                <v-list-item-title>
+                  {{ item.title }}
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-layout>
         <v-layout class="justify-space-around mt-3 align-center">
           <v-btn class="deep-orange darken-2 display_block justify-start" color="deep-orange darken-2 font-podkova-bold"
@@ -300,7 +330,8 @@
                     {title:'NEWS', url:'/admin/news', icon:'mdi-cash'},
                     {title:'GAMES', url:'/admin/game', icon:'mdi-gamepad-variant'},
                     {title:'BONUSES', url:'/admin/bonus', icon:'mdi-gamepad-variant'},
-                    {title:'BETTINGS', url:'/admin/betting', icon:'mdi-gamepad-variant'}
+                    {title:'BETTINGS', url:'/admin/betting', icon:'mdi-gamepad-variant'},
+                    {title:'SHARES', url:'/admin/share', icon:'mdi-gamepad-variant'}
                 ],
                 casinoPage: [
                     { title: 'All casino', link: '/admin/casino' },
@@ -343,6 +374,12 @@
                     { title: 'Add betting', link: '/admin/betting/add' },
                     { title: 'All category betting', link: '/admin/betting/category' },
                     { title: 'Add category betting', link: '/admin/betting/category/add' }
+                ],
+                sharePage: [
+                    { title: 'All share', link: '/admin/share' },
+                    { title: 'Add share', link: '/admin/share/add' },
+                    { title: 'All category share', link: '/admin/share/category' },
+                    { title: 'Add category share', link: '/admin/share/category/add' }
                 ]
             }
         },

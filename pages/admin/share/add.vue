@@ -23,7 +23,7 @@
 <script>
 import commonAdd from '~/components/templates/commonAdd.vue'
     export default {
-        name: "singleBettingCategoryAdd",
+        name: "singleShareAdd",
         layout: 'admin',
         components: {commonAdd},
         mounted() {   
@@ -31,8 +31,8 @@ import commonAdd from '~/components/templates/commonAdd.vue'
                title:  '',
                status: 'hide',
                lang: 'ru',
-               post_type: 'betting/category',
-               slug: 'betting/category',
+               post_type: 'share',
+               slug: 'share',
                meta_title: '',
                description: '',
                keywords: '',
@@ -50,8 +50,7 @@ import commonAdd from '~/components/templates/commonAdd.vue'
               data:{
                 body: undefined
               },
-              POST_TYPE: 'betting_category',
-              PATH_CATEGORY: 'betting/category',
+              POST_TYPE: 'share'
           }
         },
         methods: {
@@ -65,7 +64,7 @@ import commonAdd from '~/components/templates/commonAdd.vue'
             if(data.data.title !== '') {
                 await this.$store.dispatch(this.POST_TYPE + '/addNewPost', data)
                 const insertId = this.$store.getters[this.POST_TYPE + '/getInsertId']
-                if(insertId !== '') this.$router.push(`/admin/${this.PATH_CATEGORY}/${insertId}`)
+                if(insertId !== '') this.$router.push(`/admin/${this.POST_TYPE}/${insertId}`)
             } 
             else {
                 alert('Title empty')

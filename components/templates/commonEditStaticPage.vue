@@ -49,11 +49,13 @@
                                 :title = '"H1"'
                                 :action = 'action'
                                 :action_key = '"h1"' />
-                    <MM_Rich_Text v-if = 'data' 
+                    <MM_Multiple_Input_Text_Options v-if = 'data'
                                 :value = 'data.content' 
                                 :title = '"Content"'
                                 :action = 'action'
-                                :action_key = '"content"' />
+                                :action_key = '"content"'
+                                :items = 'typeContent' 
+                    />
                     <MM_Date v-if = 'data' 
                                 :value = 'data.create_at.slice(0, 10)' 
                                 :title = '"Create At"'
@@ -69,6 +71,12 @@
                                 :title = '"Thumbnail"'
                                 :action = 'action'
                                 :action_key = '"thumbnail"' />
+                     <MM_Multiple_Input_Text 
+                                :value = 'data.faq'
+                                :action = 'action' 
+                                title = "Faq" 
+                                action_key = "faq"
+                    />
                     <MM_Media_Library />
            </v-col>
       </v-row>
@@ -83,13 +91,17 @@ import MM_Date from '~/components/lib/MM_Date'
 import MM_Options from '~/components/lib/MM_Options'
 import MM_Image from '~/components/lib/MM_Image'
 import MM_Media_Library from '~/components/lib/MM_Media_Library'
+import MM_Multiple_Input_Text from '~/components/lib/MM_Multiple_Input_Text'
+import MM_Multiple_Input_Text_Options from '~/components/lib/MM_Multiple_Input_Text_Options'
+import config from '~/config'
     export default {
         name: "commonEditStaticPage",
         props: ['data', 'action'],
-        components:{MM_Input, MM_Textarea, MM_Rich_Text, MM_Date, MM_Options, MM_Image, MM_Media_Library},
+        components:{MM_Input, MM_Textarea, MM_Rich_Text, MM_Date, MM_Options, MM_Image, MM_Media_Library, MM_Multiple_Input_Text, MM_Multiple_Input_Text_Options},
         data(){
           return {
-            current_title: ''
+            current_title: '',
+            typeContent: config.TYPE_CONTENT,
           }
         },
         mounted(){

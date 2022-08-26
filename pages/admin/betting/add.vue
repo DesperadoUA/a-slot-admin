@@ -38,7 +38,7 @@ import commonAdd from '~/components/templates/commonAdd.vue'
                keywords: '',
                short_desc: '',
                h1: '',
-               content: '',
+               content: [],
                update_at: new Date().toJSON().slice(0,10),
                create_at: new Date().toJSON().slice(0,10),
                thumbnail: ''

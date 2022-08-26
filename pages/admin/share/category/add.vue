@@ -23,7 +23,7 @@
 <script>
 import commonAdd from '~/components/templates/commonAdd.vue'
     export default {
-        name: "singleBettingCategoryAdd",
+        name: "singleShareCategoryAdd",
         layout: 'admin',
         components: {commonAdd},
         mounted() {   
@@ -31,8 +31,8 @@ import commonAdd from '~/components/templates/commonAdd.vue'
                title:  '',
                status: 'hide',
                lang: 'ru',
-               post_type: 'betting/category',
-               slug: 'betting/category',
+               post_type: 'share/category',
+               slug: 'share/category',
                meta_title: '',
                description: '',
                keywords: '',
@@ -50,8 +50,8 @@ import commonAdd from '~/components/templates/commonAdd.vue'
               data:{
                 body: undefined
               },
-              POST_TYPE: 'betting_category',
-              PATH_CATEGORY: 'betting/category',
+              POST_TYPE: 'share_category',
+              PATH_CATEGORY: 'share/category',
           }
         },
         methods: {

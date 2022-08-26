@@ -56,11 +56,12 @@
                                 :title = '"H1"'
                                 :action = 'action'
                                 :action_key = '"h1"' />
-                    <MM_Rich_Text v-if = 'data' 
+                    <MM_Multiple_Input_Text_Options v-if = 'data'
                                 :value = 'data.content' 
                                 :title = '"Content"'
                                 :action = 'action'
-                                :action_key = '"content"' />
+                                :action_key = '"content"'
+                                :items = 'typeContent' />
                     <MM_Date    v-if = 'data' 
                                 :value = 'data.create_at' 
                                 :title = '"Create At"'
@@ -90,13 +91,16 @@ import MM_Date from '~/components/lib/MM_Date'
 import MM_Options from '~/components/lib/MM_Options'
 import MM_Image from '~/components/lib/MM_Image'
 import MM_Media_Library from '~/components/lib/MM_Media_Library'
+import MM_Multiple_Input_Text_Options from '~/components/lib/MM_Multiple_Input_Text_Options'
+import config from '~/config'
     export default {
         name: "commonAdd",
         props: ['data', 'action'],
-        components:{MM_Input, MM_Textarea, MM_Rich_Text, MM_Date, MM_Options, MM_Image, MM_Media_Library},
+        components:{MM_Input, MM_Textarea, MM_Rich_Text, MM_Date, MM_Options, MM_Image, MM_Media_Library, MM_Multiple_Input_Text_Options},
         data(){
           return {
-            current_title: ''
+            current_title: '',
+            typeContent: config.TYPE_CONTENT,
           }
         },
         mounted(){

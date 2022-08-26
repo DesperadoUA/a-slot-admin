@@ -1,17 +1,17 @@
 <template>
   <div>
-    <commonEdit v-if='data.body' 
+     <commonEdit v-if='data.body' 
                      :data = "data.body"
                      :action = 'POST_TYPE + "/changeStateCurrentPost"'>
-    </commonEdit> 
+    </commonEdit>
     <postMeta v-if='data.body' 
                      :data = "data.body"
                      :action = 'POST_TYPE + "/changeStateCurrentPost"'>
     </postMeta>
-    <postRelative v-if='data.body' 
+    <adminCategoryRelative v-if='data.body' 
                      :data = "data.body"
-                     :action = 'POST_TYPE + "/changeStateCurrentPost"'>
-    </postRelative>
+                     :action = 'POST_TYPE + "/changeStateCurrentPost"'> 
+    </adminCategoryRelative>
     <v-container>
         <v-row>
           <v-col class="offset-1 col-10 mt-5 mb-10">
@@ -20,7 +20,6 @@
                   text
                   @click="update()"
           >
-          <v-icon left color="white">mdi-content-save</v-icon>
             Update
           </v-btn>
           <v-btn
@@ -38,20 +37,20 @@
                :text = "snackbar.text"
                :timeout = "snackbar.timeout"
     />
-    <postPreview v-if='data.body'  slug="betting" :permalink="data.body.permalink" />
+    <postPreview v-if='data.body'  slug="shares" :permalink="data.body.permalink" />
   </div>
 </template>
 
 <script>
 import commonEdit from '~/components/templates/commonEdit'
-import postMeta from '~/components/templates/meta/Betting'
-import postRelative from '~/components/templates/relative/Betting'
+import adminCategoryRelative from '~/components/templates/adminCategoryRelative'
 import snackeBar from '~/components/templates/snackbar'
+import postMeta from '~/components/templates/meta/Category'
 import postPreview from '~/components/lib/MM_Post_Preview'
     export default {
-        name: "singleBettingPage",
+        name: "singleShareCategoryPage",
         layout: 'admin',
-        components: {commonEdit, postMeta, snackeBar, postRelative, postPreview},
+        components: {commonEdit, snackeBar, adminCategoryRelative, postMeta, postPreview},
         async mounted() {
             const user = this.$store.getters['user/getUser']
             const data = {
@@ -64,7 +63,8 @@ import postPreview from '~/components/lib/MM_Post_Preview'
         },
         data(){
           return {
-              POST_TYPE: 'betting',
+              POST_TYPE: 'share_category',
+              PATH_CATEGORY: 'share/category',
               data:{
                 body: undefined
               },
@@ -98,12 +98,11 @@ import postPreview from '~/components/lib/MM_Post_Preview'
               }
               await this.$store.dispatch(this.POST_TYPE + '/deleteCurrentPost', data)
               const confirmDelete = this.$store.getters[this.POST_TYPE + '/getConfirmDelete']
-              if(confirmDelete) this.$router.push('/admin/' + this.POST_TYPE)
+              if(confirmDelete) this.$router.push('/admin/' + this.PATH_CATEGORY)
           }
         }
     }
 </script>
 
 <style scoped>
-
 </style>

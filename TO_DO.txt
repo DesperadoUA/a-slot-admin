@@ -1,0 +1,5 @@
+Refactor components
+[x] Bonuses
+[x] License
+[x] Exchange
+
