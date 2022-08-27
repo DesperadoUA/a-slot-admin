@@ -1,5 +1,2 @@
-Refactor components
-[x] Bonuses
-[x] License
-[x] Exchange
-
+[] Add payments
+[] Add ref for news
