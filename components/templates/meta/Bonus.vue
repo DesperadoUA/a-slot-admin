@@ -8,11 +8,23 @@
                     :title = '"Referal link"' 
                     :action_key = '"ref"'
                     />
+                <MM_Input
+                    :value = 'data.value'
+                    :action = 'action' 
+                    :title = '"Value"' 
+                    :action_key = '"value"'
+                />
                 <MM_Rating 
                     :value = 'data.rating'
                     :action = 'action' 
                     :title = '"Rating"' 
                     :action_key = '"rating"'
+                />
+                <MM_Multiple_Input_Deep 
+                    :value = 'data.bonus_system'
+                    :action = 'action' 
+                    :title = '"Bonus system"' 
+                    :action_key = '"bonus_system"'
                 />
             </v-col>
         </v-row>
@@ -21,14 +33,13 @@
 
 <script>
     import MM_Input from '~/components/lib/MM_Input'
-    import MM_Checkbox from '~/components/lib/MM_Checkbox'
     import MM_Rating from '~/components/lib/MM_Rating'
-    import MM_Multiple_Input_Text from '~/components/lib/MM_Multiple_Input_Text'
-    import MM_Multiple_Input from '~/components/lib/MM_Multiple_Input'
+    import MM_Multiple_Input_Deep from '~/components/lib/MM_Multiple_Input_Deep.vue'
+    import MM_Multiple_Input from '~/components/lib/MM_Multiple_Input.vue'
     export default {
         name: "bonusMeta",
         props: ['data', 'action'],
-        components: {MM_Input, MM_Checkbox, MM_Multiple_Input, MM_Multiple_Input_Text, MM_Rating},
+        components: {MM_Input, MM_Rating, MM_Multiple_Input_Deep, MM_Input},
         data() {
             return {}
         }

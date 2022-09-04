@@ -8,6 +8,12 @@
                     :title = '"autor"' 
                     :action_key = '"autor"'
                 />
+                <MM_Multiple_Input
+                    :value = 'data.ref'
+                    :action = 'action' 
+                    title = "Referal link" 
+                    action_key = "ref"
+                    />
             </v-col>
         </v-row>
     </v-container>

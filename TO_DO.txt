@@ -1,2 +1,2 @@
-[] Add payments
-[] Add ref for news
+[x] Add payments
+[x] Add ref for news
