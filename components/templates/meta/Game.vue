@@ -8,6 +8,12 @@
                     :title = '"iframe"' 
                     :action_key = '"iframe"'
                 />
+                <MM_Multiple_Two_Input_Image 
+                    :value = 'data.special_ref'
+                    :action = 'action' 
+                    :title = '"Special ref"' 
+                    :action_key = '"special_ref"'
+                />
             </v-col>
         </v-row>
     </v-container>
