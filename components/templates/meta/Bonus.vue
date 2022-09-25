@@ -26,6 +26,12 @@
                     :title = '"Bonus system"' 
                     :action_key = '"bonus_system"'
                 />
+                <MM_Multiple_Input_Deep_Double
+                    :value = 'data.characters'
+                    :action = 'action' 
+                    :title = '"Characters"' 
+                    :action_key = '"characters"'
+                />
             </v-col>
         </v-row>
     </v-container>
@@ -35,11 +41,12 @@
     import MM_Input from '~/components/lib/MM_Input'
     import MM_Rating from '~/components/lib/MM_Rating'
     import MM_Multiple_Input_Deep from '~/components/lib/MM_Multiple_Input_Deep.vue'
+    import MM_Multiple_Input_Deep_Double from '~/components/lib/MM_Multiple_Input_Deep_Double.vue'
     import MM_Multiple_Input from '~/components/lib/MM_Multiple_Input.vue'
     export default {
         name: "bonusMeta",
         props: ['data', 'action'],
-        components: {MM_Input, MM_Rating, MM_Multiple_Input_Deep, MM_Input},
+        components: {MM_Input, MM_Rating, MM_Multiple_Input_Deep, MM_Input,  MM_Multiple_Input_Deep_Double, MM_Multiple_Input},
         data() {
             return {}
         }
