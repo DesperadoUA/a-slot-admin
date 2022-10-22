@@ -14,6 +14,24 @@
                     :title = '"Special ref"' 
                     :action_key = '"special_ref"'
                 />
+                <MM_Multiple_Two_Input  
+                    :value = 'data.characteristics'
+                    :action = 'action' 
+                    title = "Characteristics" 
+                    action_key = "characteristics"
+                />
+                <MM_Multiple_Input_Image  
+                    :value = 'data.symbols'
+                    :action = 'action' 
+                    title = "Symbols" 
+                    action_key = "symbols"
+                />
+                <MM_Multiple_Two_Input_Image 
+                    :value = 'data.gallery'
+                    :action = 'action' 
+                    :title = '"Gallery"' 
+                    :action_key = '"gallery"'
+                />
             </v-col>
         </v-row>
     </v-container>
@@ -27,11 +45,13 @@
     import MM_Characters_Game from '~/components/lib/MM_Characters_Game'    
     import MM_Multiple_Two_Input_Image from '~/components/lib/MM_Multiple_Two_Input_Image' 
     import MM_Rating from '~/components/lib/MM_Rating' 
+    import MM_Multiple_Two_Input from '~/components/lib/MM_Multiple_Two_Input'
+    import MM_Multiple_Input_Image from '~/components/lib/MM_Multiple_Input_Image'
     export default {
         name: "slotMeta",
         props: ['data', 'action'],
         components: {MM_Multiple_Input_Text, MM_Input, MM_Multiple_Input, MM_Checkbox, MM_Characters_Game, 
-        MM_Multiple_Two_Input_Image, MM_Rating},
+        MM_Multiple_Two_Input_Image, MM_Rating, MM_Multiple_Two_Input, MM_Multiple_Input_Image},
         data() {
             return {}
         }
