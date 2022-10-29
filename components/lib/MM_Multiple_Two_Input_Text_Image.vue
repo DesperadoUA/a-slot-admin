@@ -15,11 +15,11 @@
                 </div>
                 <div class="col-lg-3 col-xs-12">
                   <input type="file"
-                         :id="'file_'+index"
-                         class="mm_input margin_bottom_15 inputFile"
-                         ref="file"
-                         @change="selectFile(index)"
-                  > <label :for="'file_'+index" class="mt-7">Choose a file ...</label>
+                           :id="'file_'+action_key+'_'+index"
+                           class="mm_input margin_bottom_15 inputFile"
+                           :ref="action_key"
+                           @change="selectFile(index)"
+                    > <label :for="'file_'+action_key+'_'+index" class="mt-7">Choose a file ...</label>
                 </div>
                 <div class="col-lg-6 col-xs-12">
                   <v-text-field 
@@ -69,11 +69,11 @@
 </template>
 
 <script>
-    import axios from 'axios'
-    import config from '../../DAL/config'
-    export default {
+  import selectFile from '~/components/mixins/selectFile'
+  export default {
         name: "MM_Multiple_Two_Input_Text_Image",
         props: ['value', 'title', 'action', 'action_key'],
+        mixins: [selectFile],
         data(){
             return {
                 currenData: []
@@ -99,31 +99,6 @@
                       value: this.currenData
                     }
               this.$store.dispatch(this.action, currenData)
-            },
-            async selectFile(index){
-              const file = this.$refs.file[index].files[0]
-              if(file) {
-                  const reader = new FileReader();
-                  reader.onloadend = async () => {
-                    const user = this.$store.getters['user/getUser']
-                    const data = {
-                        session: user.session,
-                        id: user.id,
-                        file: {
-                          name: file.name,
-                          base64: reader.result
-                        }
-                    }
-                    const result = await axios.post(config.API_URL+'uploads', data)
-                    this.currenData[index].src = result.data.src
-                    const currenData = {
-                      key: this.action_key,
-                      value: this.currenData
-                    }
-                    this.$store.dispatch(this.action, currenData)    
-                  }
-                  reader.readAsDataURL(file);
-              }
             },
             deleteItem(item){
               this.currenData = this.currenData.filter(obj => obj !== item)

@@ -1,2 +1,2 @@
-[x] Add payments
-[x] Add ref for news
+[x] fix ref img for components with file[index]
+[x] Add delete item MM_Multiple_Input_Image
